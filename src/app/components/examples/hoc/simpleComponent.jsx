@@ -16,7 +16,7 @@ const SimpleComponent = ({ onLogin, onLogOut, isAuth }) => {
 SimpleComponent.propTypes = {
     onLogin: PropTypes.func,
     onLogOut: PropTypes.func,
-    isAuth: PropTypes.string
+    isAuth: PropTypes.bool
 };
 
 export default SimpleComponent;

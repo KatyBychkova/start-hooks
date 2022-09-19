@@ -2,21 +2,22 @@ import React from "react";
 import Card from "../../common/Card";
 
 const withFunctions = (Component) => (props) => {
-      const onLogin = () => {
+      const handleLogin = () => {
         localStorage.setItem("auth", "token");
     };
-    const onLogOut = () => {
+    const handleLogOut = () => {
         localStorage.removeItem("auth");
     };
-    const isAuth = localStorage.getItem("auth");
+    const isAuth = !!localStorage.getItem("auth"); // приводим isAuth к типу boolean
     console.log(isAuth);
     return (
         <Card>
             {" "}
             <Component
                 isAuth={isAuth}
-                onLogin={onLogin}
-                onLogOut={onLogOut}
+                onLogin={handleLogin}
+                onLogOut={handleLogOut}
+                {...props}
             ></Component>
         </Card>
     );

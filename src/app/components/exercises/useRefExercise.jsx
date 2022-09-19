@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import CollapseWrapper from "../common/collapse";
 const UseRefExercise = () => {
     const blockRef = useRef();
-    const textRef = useRef();
+
     const handleClick = () => {
         // console.log("blockRef", blockRef);
         // console.log("textRef", textRef);
-        textRef.current.innerText = "text";
-        blockRef.current.style.height = "150px";
-        blockRef.current.style.width = "80px";
+        blockRef.current.children[0].innerText = "text";
+        blockRef.current.style.width = "150px";
+        blockRef.current.style.height = "80px";
     };
     return (
         <CollapseWrapper title="Упражнение">
@@ -29,7 +29,7 @@ const UseRefExercise = () => {
                     color: "white"
                 }}
             >
-                <small ref={textRef}>Блок</small>
+                <small>Блок</small>
             </div>
             <button className="btn btn-secondary mt-2" onClick={handleClick}>
                 Изменить блок
